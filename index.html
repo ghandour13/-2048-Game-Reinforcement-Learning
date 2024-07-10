@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>2048 Game</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="../home.html">Practical Machine Deep Learning</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../home.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5">2048 Game</h1>
+        <ul class="list-unstyled">
+          <li>Abdallah Saba 900204018</li>
+          <li>Mahmoud ElGhandour 900201365</li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Problem Statement</h2>
+		<p>
+      <li>The game 2048 is a really successful game with millions of downloads; our goal is to optimize the 
+      reinforcement learning process in order to reach tiles with the highest value possible and to maximize
+      the score along the way. </li>
+      2048 explained: 
+      <li>2048 is a puzzle video game that is built on mathematical thinking, and with that, it has gathered the 
+      attention of many AI researchers in the past few years. The game is a 4X4 board game that requires 
+      moving all tiles around to merge similar tiles. Whenever you merge identical tiles, it creates a new tile
+      with double the value. The game's goal was to reach the Tile with the value “2048”. However, AI-trained
+      models were able to reach tiles with higher values.
+      </li>
+      Game Rules: 
+      <li>You can only move all the tiles together with 4 variations (Up, Down, Left, Right).
+      Your score increases based on the value of the tiles that you merge. 
+      When two similar tiles collide, they create a new tile with double the original value.
+      You lose if all the tiles are full and there are no more possible moves.
+      The problem is that the human brain can fill up the board by mistake, and we are sure that the Deep learning model can dodge such errors.</li>
+		</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Game Environment</h2>
+
+        <p>
+          <li>As a deep reinforcement learning model, we need to create an environment that can be used to train the model. </li>
+          <li>We used the OpenAI Gym library to create the environment. </li>
+          <li>The environment is a 4X4 board with 16 tiles. </li>
+          <li>The environment has 4 actions (Up, Down, Left, Right).</li> 
+          <li>The environment has a reward system that rewards the model based on the value of the tiles that it merges.</li> 
+          <li>The environment has a reset function that resets the board to its initial state. </li>
+          <li>The environment has a render function that renders the board to the screen. </li>
+          <li>The environment has a step function that takes an action and returns the new state, reward, and if the game is over or not. </li>
+          <li>The environment has a close function that closes the environment.</li>
+		    </p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/baserepo.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Demo Example</h2>
+
+        <p>
+			Here this is one game that was stopped after 500 moves, and we used the "manim" library in python to visualize the gameplay by our model into a video.
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/DEMOSCREENSHOT.jpeg" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">State of the art</h2>
+
+        <p>
+			This table compares between the results of our model and the results of other models. 
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/comparison.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Orignial Model from Literature</h2>
+
+        <p>
+          DQN
+          <li>A rchitecture & Main Idea: there were two architectures that were used that consisted of 4 layers and they both had similar results. Explained below is the most successful model (DQN2)</li>
+          <li>Layer 1: it had 2 parallel convolutional layers, and 2 different kernel modes to stabilize the learning process.</li>
+          <li>Layer 2: it had 4 parallel convolutional layers, which take the previous output and transform it using different kernel sizes. </li>
+          <li>Layer 3: in the third layer they used a dropout layer which helped to minimize overfitting. </li>
+          <li>Layer 4: it is a linear layer that outputs the Q-value of the 4 possible actions to determine which is the best action</li>  
+		    </p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/DQN2model.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Proposed Updates</h2>
+
+        <p>
+    			we had 4 major updates in mind that would help us improve the model and the results.
+          <li>DEEP Q-NETWORK (DQN)</li>
+          <li>LINEAR PROGRAMMING</li>
+          <li>MARKOV DECISION PROCESS (MDP)</li>
+          <li>DYNAMIC PROGRAMMING</li>
+          and we decided to contunie with the DQN update because it was the most promising update and it was the most related to our problem.
+        
+		    </p>
+
+		<h5 class="mt-5">Update #1:Choosing the best action </h5>
+		<p>
+			the game environment that we were using was just choosing a random action from the 4 possible actions, and we thought that we could improve the model by choosing the best action from the 4 possible actions.
+      So we initially improved that by just choosing the best action from the 4 possible actions, and we got a better result than the original model.
+      Then we thought that we could improve that by choosing the best action from the 4 possible actions, Then when we learnt deep reinforcement learning we started using the bellman equation in order to predict the scores from the future moves and act acorrdingly which improved our results even more.
+
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/update1.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+
+		<h5 class="mt-5">Update #2: Using the stable_baselines3 library</h5>
+		<p>
+		Until then we were only working on emproving on the game engine. Then we thought that we could improve the model by using a better library that is more optimized for reinforcement learning. So we started using the stable_baselines3 library which is a library that is built on top of the pytorch library and it is optimized for reinforcement learning. We used the DQN model from the stable_baselines3 library and we got a better result than the original model.
+    We kept changing in the hyper-parameters of the DQN model until we were able to choose the ones that gave us the best results.
+		</p>
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/DQNMODEL.PNG" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Results</h2>
+
+        <p>
+			in our latest run we ran the model on 300 games and we were able to get:
+      <li> an average score of 12000</li> 
+      <li> average moves per game were 700</li>
+      <li> and the maximum score that we got was around 32000</li>
+		</p>
+
+		<br/> <!-- Empty Line before the image -->
+	    <div class="img-container" align="center"> <!-- Block parent element -->
+      		<img src="resources/images/results.png" class="img-fluid text-center">
+    	</div>
+    	<br/> <!-- Empty Line after the image -->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 text-left">
+        <h2 class="mt-5">Technical report</h2>
+
+        <p>
+		</p>
+
+	 	<ul>
+		  <li>Programming framework: Gym, stable_baselines3, manim </li>
+		  <li>Training hardware: google colab and visual studio code</li>
+		  <li>Training time: around 3 hours and 20 mins </li>
+		  <li>Number of epochs: 300 episodes</li>
+		  <li>Time per epoch: 0.6667 minute per epoch</li>
+		  <li>Any other important detail or difficulties</li>
+		</ul> 
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">Conclusion</h2>
+
+	    <p>
+			We were a bit restricted by using the stable_baselines3 library and its DQN model, altough it improved the scores but we didn't have full control over the Layers of this model. 
+      but we were not able to get the same results as the ones in the literature. We think that we could have gotten better results if we had more time to work on the project as we learnt Reinforcement learning late in the semester and altough we tried learning it on our own, we only understood the bigger picter after the second milestone.
+		  </p>
+
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-lg-12 text-left">
+	    <h2 class="mt-5">References</h2>
+
+		<ol>
+      <li> Antonoglou, I., Schrittwieser, J., Ozair, S., Hubert, T. K., & Silver, D. (2021, October). Planning in stochastic environments with a learned model. In International Conference on Learning Representations.</li>
+      <li>Desrosiers, Jacques & Lübbecke, Marco. (2006). A Primer in Column Generation.p7-p14 10.1007/0-387-25486-2_1.</li>
+      <li>Foster, D. (2019, December 1). MuZero: The Walkthrough (Part 1/3) | by David Foster | Applied Data Science. Medium. Retrieved September 26, 2023, from https://medium.com/applied-data-science/how-to-build-your-own-muzero-in-python-f77d5718061a [4]</li>
+      <li>Guei, H. (2022). On Reinforcement Learning for the Game of 2048. arXiv preprint arXiv:2212.11087.</li>
+      <li>Li, S., & Peng, V. (2021). Playing 2048 With Reinforcement Learning. arXiv preprint arXiv:2110.10374.</li>
+      <li>Stanford. (n.d.). Simple Alpha Zero. Stanford. Retrieved September 26, 2023, from https://web.stanford.edu/~surag/posts/alphazero.html</li>
+      <li>Sutton, R. S., & Barto, A. G. (2018). Reinforcement Learning: An Introduction. MITPress.</li>
+      <li>van Heeswijk, W. (2021, January 17). Using Linear Programming to Boost Your Reinforcement Learning Algorithms. Towards Data Science. Retrieved September 26, 2023, from https://towardsdatascience.com/using-linear-programming-to-boost-your-reinforcement-learning-algorithms-994977665902</li>
+		</ol> 
+	  </div>
+	</div>
+
+  </div>
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.slim.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
